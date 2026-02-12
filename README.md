@@ -2,6 +2,8 @@
 
 一个简洁的插件分享平台，支持插件展示、分类管理、后台配置等功能。
 
+![ZmoHub Screenshot](./public/images/main.png)
+
 ## 功能特性
 
 - **插件展示**：支持分类筛选、搜索、排序
@@ -23,7 +25,7 @@
 ### 1. 克隆仓库
 
 ```bash
-git clone https://github.com/yourusername/zmohub.git
+git clone https://github.com/ggggglili/ZmoHub.git
 cd zmohub
 ```
 
@@ -35,10 +37,10 @@ npm install
 
 ### 3. 配置环境变量
 
-创建 `.env.local` 文件：
+创建 `.env.local` 文件（数据库从 [Neon](https://console.neon.tech/) 获取连接串）：
 
 ```env
-# 数据库连接（Neon PostgreSQL）
+# 数据库连接（[Neon PostgreSQL](https://neon.tech/)）
 DATABASE_URL=postgresql://username:password@host/database?sslmode=require
 
 # 管理员账号密码
