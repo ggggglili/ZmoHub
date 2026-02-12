@@ -1,12 +1,11 @@
 'use client';
 
-import { useState, useEffect } from 'react';
-import { useSearchParams, useRouter } from 'next/navigation';
+import { useState, useEffect, Suspense } from 'react';
+import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 
-export default function RedirectPage() {
+function RedirectContent() {
   const searchParams = useSearchParams();
-  const router = useRouter();
   const [countdown, setCountdown] = useState(3);
 
   const url = searchParams.get('url') || '';
@@ -120,5 +119,20 @@ export default function RedirectPage() {
         </p>
       </div>
     </div>
+  );
+}
+
+// 使用 Suspense 包裹，避免静态生成错误
+export default function RedirectPage() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen bg-white flex items-center justify-center p-4">
+        <div className="text-center">
+          <p className="text-gray-500">加载中...</p>
+        </div>
+      </div>
+    }>
+      <RedirectContent />
+    </Suspense>
   );
 }
